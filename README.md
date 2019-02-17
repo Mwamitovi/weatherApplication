@@ -1,6 +1,6 @@
 
-Create Scalable Websites using django
-=====================================
+JavaScript Unit Testing
+=======================
 
 ## SYNOPSIS
 
