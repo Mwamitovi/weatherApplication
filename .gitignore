@@ -1,0 +1,7 @@
+
+# .gitignore
+
+# Project files and directories
+/node_modules
+/META-INF
+
