@@ -28,14 +28,6 @@ Much more info is available via Jasmine official - https://jasmine.github.io/
    - Fork and clone the repo
    - Configure java (JAVA_HOME) and tomcat-server (CATALINA_HOME)
 
-            
-        - In order to access the weather application, you can access it using the following URL.
-            localhost:port/weatherApplication/login.jsp
-            After my edits: https://127.0.0.1:9999/weatherApplication/login.jsp
-            
-          or open the tomcat-server manager.
-             After my edits: https://127.0.0.1:9999/manager
-
 ### Configure
    - Remember the applications are found within apache-tomcat-(version)/webapps/
    - Goto conf/server.xml, edit <connector port="(input)" scheme="https" .../>
