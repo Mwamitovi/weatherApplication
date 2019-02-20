@@ -1,0 +1,27 @@
+{
+  "name": "jasmine_testing_js",
+  "version": "1.0.0",
+  "description": "Dependencies for running Jasmine tests, copyright @2019 MwamiTovi",
+  "main": "index.html, SpecRunner.html",
+  "dependencies": {
+    "jasmine": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "yo jasmine, then run \"entry point\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:Mwamitovi/weatherApplication.git"
+  },
+  "keywords": [
+    "jasmine",
+    "yeoman",
+    "yo",
+    "generator-jasmine",
+    "npm",
+    "nodejs"
+  ],
+  "author": "@MwamiTovi",
+  "license": "Apache-2.0"
+}
