@@ -4,9 +4,15 @@
   "description": "Dependencies for running Jasmine tests, copyright @2019 MwamiTovi",
   "main": "index.html, SpecRunner.html",
   "dependencies": {
-    "jasmine": "^3.3.1"
+    "jasmine": "^3.3.1",
+    "karma": "^4.0.1",
+    "request": "^2.88.0",
+    "semver": "^5.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "karma-jasmine": "^0.2.0",
+    "karma-jasmine-jquery": "^0.1.1"
+  },
   "scripts": {
     "test": "yo jasmine, then run \"entry point\""
   },
