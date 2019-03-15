@@ -2,6 +2,6 @@
 # .gitignore
 
 # Project files and directories
-/node_modules
+*/node_modules
 /META-INF
 
