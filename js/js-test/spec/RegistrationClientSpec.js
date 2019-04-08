@@ -1,21 +1,31 @@
 /**
  * RegistrationClientSpec is used for testing the RegistrationClient, it performs unit
  * testing on the following functionalities:
- * 1. validation of empty username and password.
- * 2. validation of matched passwords
- * 3. validating that the username is in an email form.
- * 4. validating that the password  contains at least one digit, one capital and small character
+ * // validation of empty username and password.
+ * // validation of matched passwords
+ * // validating that the username is in an email form.
+ * // validating that the password  contains at least one digit, one capital and small character
  * and at least one special character, and 6 characters or more ...
- * 5. The user registration functionality is done correctly.
+ * // The user registration functionality is done correctly.
  */
 describe("RegistrationClientSpec", function() {
     var registrationClient;
     var registrationForm;
     var userName;
+    // jasmine.getFixtures().fixturesPath = 'base/js-test/spec/javacripts/fixtures';
 
-    // beforeEach(function() {
     beforeEach(function() {
-        loadFixtures("registrationFixture.html");
+        // loadFixtures('base/js-test/spec/javacripts/fixtures/registrationFixture.html');
+        jasmine.getFixtures().set(
+            `<label for="username">Username (Email)  <span id="usernameMessage" class="error"></span></label>
+            <input type="text" id="username" name="username"/>
+            
+            <label for="password1">Password  <span id="passwordMessage1" class="error"></span></label>
+            <input type="password" id="password1" name="password1"/>
+            
+            <label for="password2">Confirm your password</label>
+            <input type="password" id="password2" name="password2"/>`
+        )
 
         registrationClient = new weatherapp.RegistrationClient();
 
@@ -26,6 +36,7 @@ describe("RegistrationClientSpec", function() {
                 "userNameMessage" : "usernameMessage",
                 "passwordMessage1" : "passwordMessage1"
         };
+        
     });
 
     describe("when validating empty username and password", function() {
