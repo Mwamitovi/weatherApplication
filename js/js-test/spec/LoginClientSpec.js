@@ -1,17 +1,25 @@
 /**
  * LoginClientSpec is used for testing the LoginClient, it performs unit
  * testing on the following functionalities:
- * 1. validation of empty username and password.
- * 2. validating that the username is in an email form.
- * 3. validating that the password  contains at least one digit, one capital and small character
+ * // validation of empty username and password.
+ * // validating that the username is in an email form.
+ * // validating that the password  contains at least one digit, one capital and small character
  * and at least one special character, and 6 characters or more ...
  */
 describe("LoginClientSpec", function() {
     var loginClient;
     var loginForm;
+    jasmine.getFixtures().fixturesPath = '';
 
     beforeEach(function() {
-        loadFixtures("loginFixture.html");
+        // loadFixtures("loginFixture.html");
+        jasmine.getFixtures().set(
+            `<label for="username">Username  <span id="usernameMessage" class="error"></span></label>
+			<input type="text" id="username" name="username"/>
+
+			<label for="password">Password  <span id="passwordMessage" class="error"></span></label>
+			<input type="password" id="password" name="password"/>`
+        )
 
         loginClient = new weatherapp.LoginClient();
 
@@ -25,6 +33,7 @@ describe("LoginClientSpec", function() {
 
     describe("when validating empty username and password", function() {
         it("should be able to display an error message when username is not entered", function() {
+            // loadFixtures("loginFixture.html");            
             document.getElementById("username").value = ""; /* setting username to empty */
             document.getElementById("password").value = "Admin@123";
 
