@@ -6,11 +6,13 @@
   "dependencies": {
     "jasmine": "^3.3.1",
     "karma": "^4.0.1",
+    "karma-chrome-launcher": "^2.2.0",
     "request": "^2.88.0",
     "semver": "^5.6.0"
   },
   "devDependencies": {
-    "karma-jasmine": "^0.2.0",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-jasmine": "^2.0.0",
     "karma-jasmine-jquery": "^0.1.1"
   },
   "scripts": {
