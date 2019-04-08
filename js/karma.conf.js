@@ -7,12 +7,20 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '.',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine-jquery','jasmine'],
+
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      // '*Fixture.html': ['html2js']
+      '**/*.html': ['html2js']
+    },
 
 
     // list of files / patterns to load in the browser
@@ -33,22 +41,32 @@ module.exports = function(config) {
         },
         
         { // fixtures
-            pattern: 'js-test/**/fixtures/*.html',
+            pattern: 'js-test/**/*Fixture.html',
+            watched: true,
             included: false,
             served: true
-        }
+        },
+
+        // plugins
+        'js-test/**/plugins/*.js',
+
+        // '*html'
     ],
+
+
+    // configuration for converting markup files into js strings
+    html2Jspreprocessor: {
+        stripPrefix: 'public',
+        prependPrefix: 'served',
+        processPath: function(filePath){
+          return filePath.replace(/\.html$/,'');
+        }
+    },
 
 
     // list of files / patterns to exclude
     exclude: [
     ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
 
 
     // test results reporter to use
@@ -74,6 +92,8 @@ module.exports = function(config) {
     plugins: [
       'karma-jasmine',
       'karma-jasmine-jquery',
+      'karma-chrome-launcher',
+      'karma-html2js-preprocessor',
     ],
 
     // enable / disable watching file and executing tests whenever any file changes
