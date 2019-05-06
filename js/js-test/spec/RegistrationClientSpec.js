@@ -12,20 +12,20 @@ describe("RegistrationClientSpec", function() {
     var registrationClient;
     var registrationForm;
     var userName;
-    // jasmine.getFixtures().fixturesPath = 'base/js-test/spec/javacripts/fixtures';
 
     beforeEach(function() {
-        // loadFixtures('base/js-test/spec/javacripts/fixtures/registrationFixture.html');
-        jasmine.getFixtures().set(
-            `<label for="username">Username (Email)  <span id="usernameMessage" class="error"></span></label>
-            <input type="text" id="username" name="username"/>
+        // jasmine.getFixtures().fixturesPath = 'js/js-test/spec/javascripts/fixtures';
+        loadFixtures("registrationFixture.html");
+        // jasmine.getFixtures().set(
+        //     `<label for="username">Username (Email)  <span id="usernameMessage" class="error"></span></label>
+        //     <input type="text" id="username" name="username"/>
             
-            <label for="password1">Password  <span id="passwordMessage1" class="error"></span></label>
-            <input type="password" id="password1" name="password1"/>
+        //     <label for="password1">Password  <span id="passwordMessage1" class="error"></span></label>
+        //     <input type="password" id="password1" name="password1"/>
             
-            <label for="password2">Confirm your password</label>
-            <input type="password" id="password2" name="password2"/>`
-        )
+        //     <label for="password2">Confirm your password</label>
+        //     <input type="password" id="password2" name="password2"/>`
+        // )
 
         registrationClient = new weatherapp.RegistrationClient();
 
@@ -98,7 +98,6 @@ describe("RegistrationClientSpec", function() {
     });
 
     describe("when user registration is done", function() {
-        // it("should be able to register valid user correctly", function() {
         it("should be able to register valid user correctly", function(done) {
             userName = "hazems" + new Date().getTime() + "@apache.org";
 
@@ -111,18 +110,6 @@ describe("RegistrationClientSpec", function() {
 
             registrationClient.registerUser(registrationForm, successCallBack, failureCallBack);
 
-            /* 
-             * Jasmine 2.0 removed 'WaitsFor/run', and we used a plugin 'waitsForAndRuns.js'
-             *
-            waitsFor(function() {
-                return successCallBack.callCount > 0;
-            }, "registration never completed", 10000);
-
-            runs(function() {
-                expect(successCallBack).toHaveBeenCalled();
-                expect(failureCallBack).not.toHaveBeenCalled();
-            }); 
-            */
             waitsForAndRuns(
                 function(){
                     return successCallBack.calls.count();
@@ -154,19 +141,6 @@ describe("RegistrationClientSpec", function() {
 
             registrationClient.registerUser(registrationForm, successCallBack, failureCallBack);
 
-            /*
-             * To understand the changes here, refer to the above 'spec' to validate user
-             *
-            waitsFor(function() {
-                return failureCallBack.callCount > 0;
-            }, "registration never completed", 10000);
-
-            runs(function() {
-                expect(failureCallBack).toHaveBeenCalled();
-                expect(failureCallBack.mostRecentCall.args[0].xmlhttp.responseText, "A user with the same username is already registered ...");
-                expect(successCallBack).not.toHaveBeenCalled();
-            });
-             */
             waitsForAndRuns(
                 function(){
                     return failureCallBack.calls.count();
