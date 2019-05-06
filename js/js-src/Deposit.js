@@ -30,8 +30,5 @@
                 break;
         };
     };
-    
-    // Understanding expectations and matchers
-
 
 })();
