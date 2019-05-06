@@ -13,7 +13,7 @@
     * The Store Administrator wants to update stock on every new transaction,
     * so that they can get the balance/stock in hand for further usage.
     * 
-    * Let us therefore consider some scenarios to update inventory stock in the event of any transaction.
+    * Let's therefore consider some scenarios to update inventory stock in the event of any transaction.
     * // Scenario-1: Inventory Stock should be updated on account of item(s) sale or issue of item(s)
     * // Scenario-2: Inventory stock should be updated on return of any item(s)
     * // Scenario-3: Inventory stocks should be updated on receiving/procuring new item(s)
