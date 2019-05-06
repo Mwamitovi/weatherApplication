@@ -9,17 +9,17 @@
 describe("LoginClientSpec", function() {
     var loginClient;
     var loginForm;
-    jasmine.getFixtures().fixturesPath = '';
-
+    
     beforeEach(function() {
-        // loadFixtures("loginFixture.html");
-        jasmine.getFixtures().set(
-            `<label for="username">Username  <span id="usernameMessage" class="error"></span></label>
-			<input type="text" id="username" name="username"/>
+        // jasmine.getFixtures().fixturesPath = 'js/js-test/spec/javascripts/fixtures';
+        loadFixtures("loginFixture.html");
+        // jasmine.getFixtures().set(
+        //     `<label for="username">Username  <span id="usernameMessage" class="error"></span></label>
+		// 	<input type="text" id="username" name="username"/>
 
-			<label for="password">Password  <span id="passwordMessage" class="error"></span></label>
-			<input type="password" id="password" name="password"/>`
-        )
+		// 	<label for="password">Password  <span id="passwordMessage" class="error"></span></label>
+		// 	<input type="password" id="password" name="password"/>`
+        // )
 
         loginClient = new weatherapp.LoginClient();
 
@@ -33,7 +33,6 @@ describe("LoginClientSpec", function() {
 
     describe("when validating empty username and password", function() {
         it("should be able to display an error message when username is not entered", function() {
-            // loadFixtures("loginFixture.html");            
             document.getElementById("username").value = ""; /* setting username to empty */
             document.getElementById("password").value = "Admin@123";
 
