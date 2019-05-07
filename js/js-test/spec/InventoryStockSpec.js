@@ -22,42 +22,47 @@
     // Writing specs for given requirements
     describe('Inventory Stock should be updated', function() {
 
-        var stockinhand_item1, item1;
-
+        // var stockinhand_item1, item1;
+        // We don't need to declare any variables, prior
         beforeEach(function() {
-            stockinhand_item1 = 11, item1 = 1;
+            // "this" initializes the variables
+            this.stockinhand_item1 = 11, this.item1 = 1;
             console.log(
-                "beforeEach: Stock in hand for item1 before spec execution = " + stockinhand_item1
+                "beforeEach: Stock in hand for item1 before spec execution = " + this.stockinhand_item1
             );
         });
 
         afterEach(function() {
-            stockinhand_item1 = 0, item1 = 0;
+            this.stockinhand_item1 = 0, this.item1 = 0;
             console.log(
-                "afterEach: Stock in hand for item1 once spec executed = " + stockinhand_item1
+                "afterEach: Stock in hand for item1 once spec executed = " + this.stockinhand_item1
             )
         });
 
         // Scenario-1
         it('On sale of an item', function() {
-            // var transaction = 'SALE';
-            expect(stockinhand_item1 - item1).toEqual(10);
+            this.transactionType = 'SALE';
+            expect(this.stockinhand_item1 - this.item1).toEqual(10);
+            expect(this.transactionType).toBeDefined();
         });
         it('On issue of an item within the organization', function() {
             // var transaction = 'ISSUE';
-            expect(stockinhand_item1 - item1).toEqual(10);
+            expect(this.stockinhand_item1 - this.item1).toEqual(10)
+            expect(this.transactionType).toBeUndefined();
         });
 
         // Scenario-2
         it('On return of an item', function() {
             // var transaction = 'SALE RETURN';
-            expect(stockinhand_item1 + item1).toEqual(12);
+            expect(this.stockinhand_item1 + this.item1).toEqual(12);
+            expect(this.transactionType).toBeUndefined();
         });
 
         // Scenario-3
         it('On receiving or procurring new item', function() {
             // var transaction = 'PROCUREMENT';
-            expect(stockinhand_item1 + item1).toEqual(12);
+            expect(this.stockinhand_item1 + this.item1).toEqual(12);
+            expect(this.transactionType).toBeUndefined();
         });
     });
 })();
