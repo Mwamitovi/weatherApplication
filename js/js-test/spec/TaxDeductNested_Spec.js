@@ -63,24 +63,39 @@
      */
     
     // Refactoring Jasmine tests for "existing code" using TDD/BDD
-    describe('Employees of <MwamiTovi> Company:', function() {
-        var index = 0;
-        var myRegion, myCurrency;
+    describe('Employees of <MwamiTovi> Company: ', function() {
+        
+        describe('Tax Deduction at Source, ', function() {
+            var index = 0;
+            var myRegion, myCurrency;
+    
+            beforeEach(function() {
+                myRegion = ["INDIA", "UK", "US"];
+                myCurrency = new Currency(myRegion[index]);
+            });
+    
+            afterEach(function() {
+                index = index + 1;
+            });
 
-        beforeEach(function() {
-            myRegion = ["INDIA", "UK", "US"];
-            myCurrency = new Currency(myRegion[index]);
-        });
-
-        afterEach(function() {
-            index = index + 1;
-        });
-
-        // Scenario-1
-        describe('Tax deducted for Ugandan Employess, ', function() {
+            // Scenario-1
             it('USH (Shilling, Ushs) currency should be used', function() {
                 expect(myCurrency.currency).toBe("Ushs");
             });
+            // Scenario-2
+            it('GBP (Pound, UK£) currency should be used', function() {
+                expect(myCurrency.currency).toBe("UK£");
+            });
+            // Scenario-2
+            it('USD (Dollar, US$) currency should be used', function() {
+                expect(myCurrency.currency).toBe("US$");
+            });
+        });
+
+        describe('Tax deducted for Ugandan Employees, ', function() {
+            // it('USH (Shilling, Ushs) currency should be used', function() {
+            //     expect(myCurrency.currency).toBe("Ushs");
+            // });
             // Scenario-4
             it('Should be 10%, if Gross Income is between USH.250,000/- and USH.500,000/-', function(){
                 var myTaxableIncome = new TaxUgandanEmp();
@@ -109,9 +124,9 @@
 
         // Scenario-2
         describe('Tax deducted for United Kingdom Employess, ', function() {
-            it('GBP (Pound, UK£) currency should be used', function() {
-                expect(myCurrency.currency).toBe("UK£");
-            });
+            // it('GBP (Pound, UK£) currency should be used', function() {
+            //     expect(myCurrency.currency).toBe("UK£");
+            // });
             //Scenario-7(1)
             xit('Should be deducted 20%, ' + 
                 'if Gross Annual Income is between £10,000/- and £32,000/-', function(){
@@ -120,9 +135,9 @@
 
         // Scenario-3
         describe('Tax deducted for United States Employess, ', function() {
-            it('USD (Dollar, US$) currency should be used', function() {
-                expect(myCurrency.currency).toBe("US$");
-            });
+            // it('USD (Dollar, US$) currency should be used', function() {
+            //     expect(myCurrency.currency).toBe("US$");
+            // });
             //Scenario-8(2)
             xit('Should be deducted 35%, ' + 
                 'of Gross Taxable Income, if employee status is SINGLE', function(){
