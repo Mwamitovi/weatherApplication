@@ -1,3 +1,5 @@
 
 // declaring Currency() function
-function Currency () {};
+function Currency () {
+    this.currency = "USH";
+};
