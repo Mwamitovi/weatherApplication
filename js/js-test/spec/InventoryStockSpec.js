@@ -21,33 +21,42 @@
 
     // Writing specs for given requirements
     describe('Inventory Stock should be updated', function() {
+
+        var stockinhand_item1, item1;
+
+        beforeEach(function() {
+            stockinhand_item1 = 11, item1 = 1;
+            console.log(
+                "beforeEach: Stock in hand for item1 before spec execution = " + stockinhand_item1
+            );
+        });
+
+        afterEach(function() {
+            stockinhand_item1 = 0, item1 = 0;
+            console.log(
+                "afterEach: Stock in hand for item1 once spec executed = " + stockinhand_item1
+            )
+        });
+
         // Scenario-1
         it('On sale of an item', function() {
-            var stockinhand_item1 = 11;
-            var item1 = 1;
-            var transaction = 'SALE';
+            // var transaction = 'SALE';
             expect(stockinhand_item1 - item1).toEqual(10);
         });
         it('On issue of an item within the organization', function() {
-            var stockinhand_item1 = 11;
-            var item1 = 1;
-            var transaction = 'ISSUE';
+            // var transaction = 'ISSUE';
             expect(stockinhand_item1 - item1).toEqual(10);
         });
 
         // Scenario-2
-        it('On return of any item', function() {
-            var stockinhand_item1 = 11;
-            var item1 = 1;
-            var transaction = 'SALE RETURN';
+        it('On return of an item', function() {
+            // var transaction = 'SALE RETURN';
             expect(stockinhand_item1 + item1).toEqual(12);
         });
 
         // Scenario-3
         it('On receiving or procurring new item', function() {
-            var stockinhand_item1 = 11;
-            var item1 = 1;
-            var transaction = 'PROCUREMENT';
+            // var transaction = 'PROCUREMENT';
             expect(stockinhand_item1 + item1).toEqual(12);
         });
     });
