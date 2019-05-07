@@ -68,7 +68,7 @@
             });
 
             // Scenario-5 (1)
-            it("Should be deducted 20% if Gross Income is between USH.500,000/- and USH.1,000,000/-", function(){
+            it("Should be deducted 20%, if Gross Income is between USH.500,000/- and USH.1,000,000/-", function(){
                 var myTaxableIncome = new TaxUgandanEmp();
                 //Let's assume the taxable income is USH.700,000/-
                 myTaxableIncome.setIncome(700000);
@@ -76,7 +76,7 @@
             });
             
             // Scenario-6 (2)
-            it("Should be deducted 30% if Gross Income is >USH.1,000,000/-", function(){
+            it("Should be deducted 30%, if Gross Income is >USH.1,000,000/-", function(){
                 var myTaxableIncome = new TaxUgandanEmp();
                 //Let's assume the taxable income is USH.1,300,000/-
                 myTaxableIncome.setIncome(1300000);
@@ -92,7 +92,7 @@
             });
         });
 
-        // Scenario-2
+        // Scenario-3
         describe('Tax deducted for United States Employess, ', function() {
             it('USD (Dollar, US$) currency should be used', function() {
                 var myCurrency = new Currency("US");

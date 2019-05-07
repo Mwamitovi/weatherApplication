@@ -75,7 +75,7 @@
             });
         });
 
-        // Scenario-2
+        // Scenario-3
         describe('Tax deducted for United States Employess, ', function() {
             it('USD (Dollar, US$) currency should be used', function() {
                 var myCurrency = new Currency("US");
