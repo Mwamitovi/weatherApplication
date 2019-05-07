@@ -40,6 +40,7 @@
      * // Scenario-4, Given: Employees of the Company,
      *                 When: Tax deducted for Ugandan employee,
      *                 Then: Should be deducted 10 %, if Gross Income is between Ushs.250,000 & Ushs.500,000
+     *          (added this) Should be deducted 15 %, if Gross Income is more than Ushs.500,000
      */
     
     // Test suite
@@ -56,6 +57,13 @@
                 //Let's assume the taxable income is USH.300,000/-
                 myTaxableIncome.setIncome(300000);
                 expect(myTaxableIncome.calculateTDS()).toEqual(5000);
+            });
+
+            it("Should be 15%, if Gross Income is more than USH.500,000/-", function(){
+                var myTaxableIncome = new TaxUgandanEmp();
+                //Let's assume the taxable income is USH.700,000/-
+                myTaxableIncome.setIncome(700000);
+                expect(myTaxableIncome.calculateTDS()).toEqual(75000);
             });
         });
 
