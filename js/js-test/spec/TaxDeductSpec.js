@@ -46,9 +46,25 @@
     describe('Employess of <MwamiTovi> Company:', function() {
         // Scenario-1
         describe('Tax deducted for Ugandan Employess, ', function() {
-            it('USH should be used', function() {
+            it('USH (Shilling, Ushs) currency should be used', function() {
                 var myCurrency = new Currency();
-                expect(myCurrency.currency).toBe("USH");
+                expect(myCurrency.currency).toBe("Ushs");
+            });
+        });
+
+        // Scenario-2
+        describe('Tax deducted for United Kingdom Employess, ', function() {
+            it('GBP (Pound, UK£) currency should be used', function() {
+                var myCurrency = new Currency();
+                expect(myCurrency.currency).toBe("UK£");
+            });
+        });
+
+        // Scenario-2
+        describe('Tax deducted for United States Employess, ', function() {
+            it('USD (Dollar, US$) currency should be used', function() {
+                var myCurrency = new Currency();
+                expect(myCurrency.currency).toBe("US$");
             });
         });
     });
