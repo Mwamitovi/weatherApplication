@@ -22,7 +22,7 @@
     describe('Credit Card Divison of a bank: ', function() {
         // Scenario-1
         describe('Accept Credit Card Number for Master Card category', function() {
-            it('Should be having 16 numerical aldigits', function() {
+            it('Should be having 16 numerical digits', function() {
                 expect(validateCreditCardNumber("9999-9999-9999-9999")).toBeTruthy();
             });
         });
