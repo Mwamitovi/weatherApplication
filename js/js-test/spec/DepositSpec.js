@@ -21,6 +21,8 @@
             var MyDeposit = new Deposit("FIX");
             var DepositType = MyDeposit.BankDeposit();
             expect(DepositType).toBe("FD");
+            expect(DepositType).not.toBe("RD");
+            expect(DepositType).not.toBe("Any value Other than 'FD' ");
         });
 
         // Scenario-2
@@ -28,6 +30,8 @@
             var MyDeposit = new Deposit("RECURRING");
             var DepositType = MyDeposit.BankDeposit();
             expect(DepositType).toBe("RD");
+            expect(DepositType).not.toBe("FD");
+            expect(DepositType).not.toBe("Any value Other than 'RD' ");
         });
     });
 
