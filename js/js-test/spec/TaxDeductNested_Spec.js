@@ -63,11 +63,22 @@
      */
     
     // Refactoring Jasmine tests for "existing code" using TDD/BDD
-    describe('Employess of <MwamiTovi> Company:', function() {
+    describe('Employees of <MwamiTovi> Company:', function() {
+        var index = 0;
+        var myRegion, myCurrency;
+
+        beforeEach(function() {
+            myRegion = ["INDIA", "UK", "US"];
+            myCurrency = new Currency(myRegion[index]);
+        });
+
+        afterEach(function() {
+            index = index + 1;
+        });
+
         // Scenario-1
         describe('Tax deducted for Ugandan Employess, ', function() {
             it('USH (Shilling, Ushs) currency should be used', function() {
-                var myCurrency = new Currency("UGANDA");
                 expect(myCurrency.currency).toBe("Ushs");
             });
             // Scenario-4
@@ -99,7 +110,6 @@
         // Scenario-2
         describe('Tax deducted for United Kingdom Employess, ', function() {
             it('GBP (Pound, UK£) currency should be used', function() {
-                var myCurrency = new Currency("UK");
                 expect(myCurrency.currency).toBe("UK£");
             });
             //Scenario-7(1)
@@ -111,7 +121,6 @@
         // Scenario-3
         describe('Tax deducted for United States Employess, ', function() {
             it('USD (Dollar, US$) currency should be used', function() {
-                var myCurrency = new Currency("US");
                 expect(myCurrency.currency).toBe("US$");
             });
             //Scenario-8(2)
