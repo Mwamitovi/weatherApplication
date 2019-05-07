@@ -50,6 +50,13 @@
                 var myCurrency = new Currency("UGANDA");
                 expect(myCurrency.currency).toBe("Ushs");
             });
+            // Scenario-4
+            it("Should be 10%, if Gross Income is between USH.250,000/- and USH.500,000/-", function(){
+                var myTaxableIncome = new TaxUgandanEmp();
+                //Let's assume the taxable income is USH.300,000/-
+                myTaxableIncome.setIncome(300000);
+                expect(myTaxableIncome.calculateTDS()).toEqual(5000);
+            });
         });
 
         // Scenario-2
