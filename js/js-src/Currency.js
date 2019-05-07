@@ -1,4 +1,6 @@
 
+'use strict';
+
 // declaring Currency() function
 function Currency(region) {    
     // this.currency = "Ushs";
