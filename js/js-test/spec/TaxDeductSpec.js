@@ -47,6 +47,7 @@
         // Scenario-1
         describe('Tax deducted for Ugandan Employess, ', function() {
             it('USH should be used', function() {
+                var myCurrency = new Currency();
                 expect(myCurrency.currency).toBe("USH");
             });
         });
