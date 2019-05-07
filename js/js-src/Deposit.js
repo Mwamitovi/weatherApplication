@@ -11,12 +11,12 @@
                   (that is, monthly, quarterly, half-yearly, yearly, and so on)
  */
     
- // declaring Deposit function, with a property "Type"
+ // An Object Construction function, with one parameter
 function Deposit(Frequency) {
     this.Type = Frequency;
 };
 
-// declaring the BankDeposit method
+// A function for the Deposit() object using prototype
 Deposit.prototype.BankDeposit = function() {
     switch (this.Type) {
         case "FIX":
