@@ -12,3 +12,12 @@ var TaxUgandanEmp = function() {
         grossTaxableIncome = grossIncome;
     };
 };
+
+// defining the calculateTDS() method
+TaxUgandanEmp.prototype.calculateTDS = function() {
+    var myTax = 0;
+    if(this.getIncome() > 250000 && this.getIncome() <= 500000) {
+        myTax = (this.getIncome() - 250000) * 10 / 100;
+    }
+    return myTax;
+};
