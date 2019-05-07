@@ -52,7 +52,7 @@
      */
     
     // Refactoring Jasmine tests for "existing code" using TDD/BDD
-    describe('Employess of <MwamiTovi> Company:', function() {
+    describe('Employees of <MwamiTovi> Company:', function() {
         // Scenario-1
         describe('Tax deducted for Ugandan Employess, ', function() {
             it('USH (Shilling, Ushs) currency should be used', function() {
