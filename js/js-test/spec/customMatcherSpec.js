@@ -23,18 +23,24 @@
     describe('<MwamiTovi> Company: Online Order Module', function() {
         beforeEach(function(){
             jasmine.addMatchers(personAgeValidationMatcher);
+            jasmine.addMatchers(personNameValidationMatcher);
         });
-        // Scenario-1
         describe('When to place the online order: ', function() {
+            // Scenario-1
             it('Age should be greater than or equal to 21 years', function() {
-                var myPerson = new Person(18, 'Martin', 'Matovu');
+                var myPerson = new Person(32, 'Martin', 'Matovu');
                 expect(myPerson.age).toBeOlderThan(20);
+            });
+            // Scenario-2
+            it("First Name and Last Name are required to place the online order", function() {
+                var myPerson = new Person(32, 'Martin', 'Matovu');
+                expect(myPerson).toContainFirstAndLastName();
             });
         });
     });
 
     /**
-     * Defining a custom matcher function
+     * Defining a custom matcher functions
      * 
      * In this example, define the custom matcher personAgeValidationMatcher(),
      * Note that we create the toBeOlderThan() method to validate a person's age within the custom matcher. 
@@ -43,6 +49,12 @@
      * // and it receives the second argument as Expected Value, which is passed to the matcher itself.
      * // And returns a result object with a property called "pass" that is the Boolean result of matcher.
      * // The "pass" property tells the expectation whether the matcher is successful (true) or unsuccessful (false).
+     * 
+     * Also we also have the personNameValidationMatcher(),
+     * which uses the toContainFirstAndLastName() function which calls the compare() method.
+     * Here, compare() is created with one parameter (actual)
+     * This argument is directly compared to our expected value (e.g. myPerson)
+     * And implicitly checks if/not myPerson.firstName & myPerson.SecondName are "undefined"
      */
 
     var personAgeValidationMatcher = {
@@ -74,7 +86,7 @@
         toContainFirstAndLastName: function() {
             return {
                 compare: function(actual) {
-                    if(actual.firstName != undefined && actual.lastName != undefined) {
+                    if(actual.firstName != undefined && actual.secondName != undefined) {
                         return {
                             pass: true,
                             message: 'Person is eligible to place an order'
@@ -83,7 +95,7 @@
                     else {
                         return {
                             pass: false,
-                            message: 'First name and last name are needed to process the order'
+                            message: 'First name and Last name are needed to process the order'
                         };
                     };
                 }
