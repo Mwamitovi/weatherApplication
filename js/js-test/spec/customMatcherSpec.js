@@ -27,6 +27,8 @@
         // Scenario-1
         describe('When to place the online order: ', function() {
             it('Age should be greater than or equal to 21 years', function() {
+                var myPerson = new Person(32, 'Martin', 'Matovu');
+                expect(myPerson.age).toBeOlderThan(20);
             });
         });
     });
