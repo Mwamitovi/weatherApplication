@@ -29,7 +29,7 @@
      * as the value passed to expect() and the value passed to the toEqual() matcher itself
      * as the second argument or Expected value.
      */
-    // 
+    
     var MyCustomEquality = function(strFirstString, strSecondString) {
         if(typeof strFirstString == "string" && typeof strSecondString == "string") {
             return strFirstString.substr(0,7) == strSecondString.substr(0,7);
