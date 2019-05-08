@@ -69,5 +69,27 @@
         }
     };
 
+
+    var personNameValidationMatcher = {
+        toContainFirstAndLastName: function() {
+            return {
+                compare: function(actual) {
+                    if(actual.firstName != undefined && actual.lastName != undefined) {
+                        return {
+                            pass: true,
+                            message: 'Person is eligible to place an order'
+                        };
+                    }
+                    else {
+                        return {
+                            pass: false,
+                            message: 'First name and last name are needed to process the order'
+                        };
+                    };
+                }
+            };
+        }
+    };
+
 })();
 
