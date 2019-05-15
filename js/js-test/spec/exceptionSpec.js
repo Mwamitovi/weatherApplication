@@ -17,6 +17,20 @@
         // Scenario-1
         describe('Validate Errors: ', function() {
             it('Error should be thrown on any unexpected behavior or malfunctioning', function() {
+                expect(addTwonumbers).not.toThrow();
+                expect(generateMaxValue).toThrow();
+                expect(generateMaxValue).toThrowError();
+            });
+            it('Error should be thrown on passing any unexpected or wrong arguments', function() {
+                // Assertions to test parameters of addTwonumbers()
+                expect(addTwonumbers.bind(null,1,2)).not.toThrow();
+                expect(addTwonumbers.bind(null,1,2)).not.toThrowError();
+                expect(function(){addTwonumbers(1,4);}).not.toThrow();
+                // Asserions to test parameters of generateMaxvalue()
+                expect(generateMaxValue.bind(null,5)).not.toThrow();
+                expect(generateMaxValue.bind(this,5)).not.toThrow();
+                expect(function(){generateMaxValue(2000);}).toThrow();
+                expect(function(){generateMaxValue(2000);}).toThrowError();
             });
         });
     });
