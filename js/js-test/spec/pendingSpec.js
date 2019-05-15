@@ -38,6 +38,11 @@
             var myPerson = new Person(32, 'Martin', 'Matovu');
             expect(myPerson).toContainFirstAndLastName();
         });
+        // Implementing a passing test-case for scenario-2
+        it("First Name and Last Name are required to place the online order", function() {
+            var myPerson = new Person(20, 'Lydia');
+            expect(myPerson).toContainOneName();
+        });
     });
 
     /**
@@ -83,6 +88,24 @@
                         return {
                             pass: false,
                             message: 'First name and Last name are needed to process the order'
+                        };
+                    };
+                }
+            };
+        },
+        toContainOneName: function() {
+            return {
+                compare: function(actual) {
+                    if(actual.firstName != undefined || actual.secondName != undefined) {
+                        return {
+                            pass: true,
+                            message: 'You are eligible to place an order'
+                        };
+                    }
+                    else {
+                        return {
+                            pass: false,
+                            message: 'Atleast one name is needed to process the order'
                         };
                     };
                 }
