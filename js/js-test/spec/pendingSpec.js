@@ -25,7 +25,16 @@
             });
         });  
         // Scenario-2
+        // test-case marked with 'x' before declaration
         xit("First Name and Last Name are required to place the online order", function() {
+            var myPerson = new Person(32, 'Martin', 'Matovu');
+            expect(myPerson).toContainFirstAndLastName();
+        });
+        // test-case without function body
+        it("First Name and Last Name are required to place the online order");
+        // test-case with pending()
+        it("First Name and Last Name are required to place the online order", function() {
+            pending();
             var myPerson = new Person(32, 'Martin', 'Matovu');
             expect(myPerson).toContainFirstAndLastName();
         });
