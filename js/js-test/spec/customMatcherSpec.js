@@ -25,11 +25,11 @@
             jasmine.addMatchers(personAgeValidationMatcher);
             jasmine.addMatchers(personNameValidationMatcher);
         });
-        describe('When to place the online order: ', function() {
+        describe('When placing the online order: ', function() {
             // Scenario-1
             it('Age should be greater than or equal to 21 years', function() {
                 var myPerson = new Person(32, 'Martin', 'Matovu');
-                expect(myPerson.age).toBeOlderThan(20);
+                expect(myPerson.age).toBeOlderThan(21);
             });
             // Scenario-2
             it("First Name and Last Name are required to place the online order", function() {
