@@ -33,6 +33,16 @@
                 expect(function(){generateMaxValue(2000);}).toThrowError();
             });
         });
+        // Scenario-2
+        describe('Validate Error Messages: ', function() {
+            it('Error messages should be consistent throughout the application', function() {
+                expect(generateMaxValue).toThrow(new Error("No value is assigned to variable intVar!"));
+                expect(generateMaxValue).toThrowError("No value is assigned to variable intVar!");
+                expect(generateMaxValue.bind(null,5000)).toThrow(new Error("Maximum value should be between 0 and 1000"));
+                expect(generateMaxValue.bind(null,5000)).toThrowError("Maximum value should be between 0 and 1000");
+                expect(function(){generateMaxValue(5000);}).toThrowError("Maximum value should be between 0 and 1000");
+            });
+        });
     });
 
 })();
