@@ -25,11 +25,11 @@
 
     describe("<MwamiTovi> Money Exchange Company: Currency Converter Module", function() {
         describe("When converting currency acros regions: ", function() {
-            xit("Verify that Ugandan Shillings (USH) converted into US Dollars (USD)", function() {
+            it("Verify that Ugandan Shillings (USH) converted into US Dollars (USD)", function() {
                 var myCurrency = new CurrencyConvertor(3750, "USH", "USD");
                 expect(myCurrency.convertedCurrency()).toEqual(1);
             });
-            xit("Verify that Ugandan Shillings (USH) converted to Japanese Yen (JPY)", function() {
+            it("Verify that Ugandan Shillings (USH) converted to Japanese Yen (JPY)", function() {
                 var myCurrency = new CurrencyConvertor(1, "USH", "JPY");
                 expect(myCurrency.convertedCurrency()).toEqual(0.03);
             });
