@@ -27,6 +27,22 @@
         describe("When converting currency acros regions: ", function() {
             xit("Verify that Ugandan Shillings (USH) converted into US Dollars (USD)", function() {                
             });
+            xit("Verify that Ugandan Shillings (USH) converted to Japanese Yen (JPY)", function() {
+            });
+            xit("Verify that Hong Kong Dollars (HKD) converted to US Dollars (USD)", function() {
+            });
+            xit("Verify that Japanese Yen (JPY) converted to US Dollars (USD)", function() {
+            });
+            xit("Verify that UAE Dirham (AED) converted to US Dollars (USD)", function() {
+            });
+            xit("Verify that British Pound Sterling (GBP) converted to US Dollars (USD)", function() {
+            });
+            xit("Verify that South African Rand (ZAR) converted to Ugandan Shillings (USH)", function() {
+            });
+            xit("Verify that US Dollars (USD) converted to Hong Kong Dollars (HKD)", function() {
+            });
+            xit("Verify that US Dollars (USD) converted to Japanese Yen (JPY)", function() {
+            });
         });
     });
 
