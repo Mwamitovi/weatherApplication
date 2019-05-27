@@ -21,13 +21,13 @@
         describe("When Convert the Currency across East African Countries: ", function() {
             it("Kenya Shillings (KES) should be converted to Uganda Shillings (USH)" +
                "with a user defined exchange rate", function() {
-                    var myCurrency = new CurrencyConverter(1, "KES", "USH", 0.025);
-                    expect(myCurrency.convertedCurrency()).toEqual(50);
+                    var myCurrency = new CurrencyConvertor(1, "KES", "USH", 0.025);
+                    expect(myCurrency.convertedCurrency()).toEqual(0.025);
             });
             it("Tanzania Shillinga (TZS) should be converted to Uganda Shillings (USH)" +
                "with a user defined exchange rate", function() {
-                    var myCurrency = new CurrencyConverter(1, "TZS", "USH",0.8);
-                    expect(myCurrency.convertedCurrency()).toEqual(1.25);
+                    var myCurrency = new CurrencyConvertor(1, "TZS", "USH", 0.8);
+                    expect(myCurrency.convertedCurrency()).toEqual(0.8);
             });            
         });
     });
