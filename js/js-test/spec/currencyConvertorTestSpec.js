@@ -34,31 +34,31 @@
                 expect(myCurrency.convertedCurrency()).toEqual(0.03);
             });
             it("Verify that Ugandan Shillings (USH) are converted to Kenya Shillings (KES)", function() {
-                var myCurrency = new CurrencyConverter(1000, "USH", "KSH");
+                var myCurrency = new CurrencyConvertor(1000, "USH", "KES");
                 expect(myCurrency.convertedCurrency()).toEqual(27.13);
             });
             it("Verify that Ugandan Shillings (USH) are converted to Rwanda Francs (RF)", function() {
-                var myCurrency = new CurrencyConverter(2000, "USH", "RFC");
+                var myCurrency = new CurrencyConvertor(2000, "USH", "RFC");
                 expect(myCurrency.convertedCurrency()).toEqual(933);
             });
             it("Verify that Ugandan Shillings (USH) are converted to UAE Dirhams (AED)", function() {
-                var myCurrency = new CurrencyConverter(10000, "USH", "AED");
-                expect(myCurrency.convertedCurrency()).toEqual(9.81);
+                var myCurrency = new CurrencyConvertor(5000, "USH", "AED");
+                expect(myCurrency.convertedCurrency()).toEqual(4.91);
             });
             it("Verify that Ugandan Shillings (USH) are converted to British Pound Sterlings (GBP)", function() {
-                var myCurrency = new CurrencyConverter(5000, "USH", "GBP");
+                var myCurrency = new CurrencyConvertor(5000, "USH", "GBP");
                 expect(myCurrency.convertedCurrency()).toEqual(1.03);
             });
             it("Verify that Ugandan Shillings (USH) are converted to South African Rands (ZAR)", function() {
-                var myCurrency = new CurrencyConverter(1000, "USH", "ZAR");
-                expect(myCurrency.convertedCurrency()).toEqual(3.84);
+                var myCurrency = new CurrencyConvertor(1000, "USH", "ZAR");
+                expect(myCurrency.convertedCurrency()).toEqual(4);
             });
             it("Verify that US Dollars (USD) are converted to Kenya Shillings (KES)", function() {
-                var myCurrency = new CurrencyConverter(500, "USD", "KES");
-                expect(myCurrency.convertedCurrency()).toEqual(0.13);
+                var myCurrency = new CurrencyConvertor(500, "USD", "KES");
+                expect(myCurrency.convertedCurrency()).toEqual(0.15);
             });
             it("Verify that US Dollars (USD) converted to Japanese Yen (JPY)", function() {
-                var myCurrency = new CurrencyConverter(5, "USD", "JPY");
+                var myCurrency = new CurrencyConvertor(5, "USD", "JPY");
                 expect(myCurrency.convertedCurrency()).toEqual(557.99);
             });
         });
