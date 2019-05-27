@@ -13,17 +13,21 @@
      * so that I can get the exact value of currency conversion for further usage.
      * 
      * we can consider the following Acceptance Criteria for the preceding user story:
-     * // Kenya Shillings (KES) should be converted to Uganda Shillings (USH) with the exchange rate 0.02713
-     * // Tanzania Shillinga (TZS) should be converted to Uganda Shillings (USH) with exchange rate 0.6151
+     * // Kenya Shillings (KES) should be converted to Uganda Shillings (USH) with the exchange rate 0.025
+     * // Tanzania Shillinga (TZS) should be converted to Uganda Shillings (USH) with exchange rate 0.8
      */
 
     describe("<MwamiTovi> Money Exchange Company: Currency Converter Module", function() {
         describe("When Convert the Currency across East African Countries: ", function() {
             it("Kenya Shillings (KES) should be converted to Uganda Shillings (USH)" +
                "with a user defined exchange rate", function() {
+                    var myCurrency = new CurrencyConverter(1, "KES", "USH", 0.025);
+                    expect(myCurrency.convertedCurrency()).toEqual(50);
             });
             it("Tanzania Shillinga (TZS) should be converted to Uganda Shillings (USH)" +
                "with a user defined exchange rate", function() {
+                    var myCurrency = new CurrencyConverter(1, "TZS", "USH",0.8);
+                    expect(myCurrency.convertedCurrency()).toEqual(1.25);
             });            
         });
     });
