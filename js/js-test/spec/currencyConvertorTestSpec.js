@@ -14,12 +14,12 @@
      * these test requirements in the form of test cases corresponding to the preceding User Story;
      * // Test Case-1: Verify that Ugandan Shillings (USH) are converted to US Dollars (USD)
      * // Test Case-2: Verify that Ugandan Shillings (USH) are converted to Japanese Yen (JPY)
-     * // Test Case-3: Verify that Hong Kong Dollars (HKD) are converted to US Dollars (USD)
-     * // Test Case-4: Verify that Japanese Yen (JPY) are converted to US Dollars (USD)
-     * // Test Case-5: Verify that UAE Dirhams (AED) are converted to US Dollars (USD)
-     * // Test Case-6: Verify that British Pound Sterlings (GBP) are converted to US Dollars (USD)
-     * // Test Case-7: Verify that South African Rands (ZAR) are converted to Ugandan Shillings (USH)
-     * // Test Case-8: Verify that US Dollars (USD) are converted to Hong Kong Dollars (HKD)
+     * // Test Case-3: Verify that Ugandan Shillings (USH) are converted to Kenya Shillings (KES)
+     * // Test Case-4: Verify that Ugandan Shillings (USH) are converted to Rwanda Francs (RF)
+     * // Test Case-5: Verify that Ugandan Shillings (USH) are converted to UAE Dirhams (AED)
+     * // Test Case-6: Verify that Ugandan Shillings (USH) are converted to British Pound Sterlings (GBP)
+     * // Test Case-7: Verify that Ugandan Shillings (USH) are converted to South African Rands (ZAR)
+     * // Test Case-8: Verify that US Dollars (USD) are converted to Kenya Shillings (KES)
      * // Test Case-9: Verify that US Dollars (USD) are converted to Japanese Yen (JPY)
      */
 
@@ -33,19 +33,33 @@
                 var myCurrency = new CurrencyConvertor(1, "USH", "JPY");
                 expect(myCurrency.convertedCurrency()).toEqual(0.03);
             });
-            xit("Verify that Hong Kong Dollars (HKD) converted to US Dollars (USD)", function() {
+            it("Verify that Ugandan Shillings (USH) are converted to Kenya Shillings (KES)", function() {
+                var myCurrency = new CurrencyConverter(1000, "USH", "KSH");
+                expect(myCurrency.convertedCurrency()).toEqual(27.13);
             });
-            xit("Verify that Japanese Yen (JPY) converted to US Dollars (USD)", function() {
+            it("Verify that Ugandan Shillings (USH) are converted to Rwanda Francs (RF)", function() {
+                var myCurrency = new CurrencyConverter(2000, "USH", "RFC");
+                expect(myCurrency.convertedCurrency()).toEqual(933);
             });
-            xit("Verify that UAE Dirham (AED) converted to US Dollars (USD)", function() {
+            it("Verify that Ugandan Shillings (USH) are converted to UAE Dirhams (AED)", function() {
+                var myCurrency = new CurrencyConverter(10000, "USH", "AED");
+                expect(myCurrency.convertedCurrency()).toEqual(9.81);
             });
-            xit("Verify that British Pound Sterling (GBP) converted to US Dollars (USD)", function() {
+            it("Verify that Ugandan Shillings (USH) are converted to British Pound Sterlings (GBP)", function() {
+                var myCurrency = new CurrencyConverter(5000, "USH", "GBP");
+                expect(myCurrency.convertedCurrency()).toEqual(1.03);
             });
-            xit("Verify that South African Rand (ZAR) converted to Ugandan Shillings (USH)", function() {
+            it("Verify that Ugandan Shillings (USH) are converted to South African Rands (ZAR)", function() {
+                var myCurrency = new CurrencyConverter(1000, "USH", "ZAR");
+                expect(myCurrency.convertedCurrency()).toEqual(3.84);
             });
-            xit("Verify that US Dollars (USD) converted to Hong Kong Dollars (HKD)", function() {
+            it("Verify that US Dollars (USD) are converted to Kenya Shillings (KES)", function() {
+                var myCurrency = new CurrencyConverter(500, "USD", "KES");
+                expect(myCurrency.convertedCurrency()).toEqual(0.13);
             });
-            xit("Verify that US Dollars (USD) converted to Japanese Yen (JPY)", function() {
+            it("Verify that US Dollars (USD) converted to Japanese Yen (JPY)", function() {
+                var myCurrency = new CurrencyConverter(5, "USD", "JPY");
+                expect(myCurrency.convertedCurrency()).toEqual(557.99);
             });
         });
     });
