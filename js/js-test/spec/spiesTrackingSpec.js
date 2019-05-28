@@ -27,6 +27,7 @@
             beforeEach(function(){
                 this.testPerson = new Person();
                 spyOn(this.testPerson, "getAge");
+                spyOn(this.testPerson, "checkHIV");
             });
             describe(".calls.any() property ", function() {
                 // scenario-1
@@ -37,6 +38,16 @@
                 it("should return 'true' if spy is called once", function() {
                     this.testPerson.ValidateAge("02/10/1987");
                     expect(this.testPerson.getAge.calls.any()).toEqual(true);
+                });
+            });
+            // scenario-3
+            describe(".calls.count() property ", function() {                
+                it("should track the number of times the spy is called", function() {
+                    expect(this.testPerson.getAge.calls.count()).toEqual(0);
+                    // place calls to the function
+                    this.testPerson.ValidateAge("02/10/1987");
+                    this.testPerson.ValidateAge("02/10/1987");
+                    expect(this.testPerson.getAge.calls.count()).toEqual(2);
                 });
             });
         });
