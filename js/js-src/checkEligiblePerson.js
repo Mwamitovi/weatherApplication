@@ -14,4 +14,16 @@ const Person = function(name, DOB, bloodgroup, donor_receiver){
         this.myBloodGroup = personBloodGroup || this.myBloodGroup;
         return this.checkHIV(this.myName, this.myDOB, this.myBloodGroup);
     };
-}
+};
+
+
+Person.prototype.getAge = function(birth){
+    console.log("getAge() function has been called");
+    let calculatedAge = 0;
+    // logic to calculate person's age will be implemented later
+    if(calculatedAge < 18){
+        throw new ValidationError("You must be 18years or older");
+    };
+    return calculatedAge;
+};
+
