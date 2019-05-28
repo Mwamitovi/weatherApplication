@@ -62,6 +62,20 @@
                     expect(this.testPerson.checkHIV.calls.argsFor(2)).toEqual(["Name3", "10/25/1990", "A+"]);
                 });
             });
+            // scenario-5
+            describe(".calls.allArgs() property ", function() {                
+                it("should return the argument for all calls", function() {
+                    this.testPerson.ValidateHIV("Name1", "10/25/1990", "A+");   // first call
+                    this.testPerson.ValidateHIV("Name2", "10/25/1990", "A+");   // second call
+                    this.testPerson.ValidateHIV("Name3", "10/25/1990", "A+");   // third call
+
+                    expect(this.testPerson.checkHIV.calls.allArgs()).toEqual(
+                        ["Name1", "10/25/1990", "A+"]
+                        ["Name2", "10/25/1990", "A+"]
+                        ["Name3", "10/25/1990", "A+"]
+                        );
+                });
+            });
         });
     });
 
