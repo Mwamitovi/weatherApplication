@@ -23,11 +23,13 @@
             it("Person's age should be greater than or equal to 18 years", function() {
                 var testPerson = new Person();
                 // spyOn(testPerson, "getAge");
-                spyOn(testPerson, "getAge").and.callThrough();
+                // spyOn(testPerson, "getAge").and.callThrough();
+                spyOn(testPerson, "getAge").and.callFake(function(){ return 18; });
                 testPerson.getAge("02/10/1987");
 
                 expect(testPerson.getAge).toHaveBeenCalled();
                 expect(testPerson.getAge).toHaveBeenCalledWith("02/10/1987");
+                expect(testPerson.getAge()).toEqual(18);
             });
             // scenario-2
             it("A person should not be infected with HIV", function() {
