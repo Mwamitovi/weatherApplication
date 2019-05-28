@@ -69,13 +69,41 @@
                     this.testPerson.ValidateHIV("Name2", "10/25/1990", "A+");   // second call
                     this.testPerson.ValidateHIV("Name3", "10/25/1990", "A+");   // third call
 
-                    expect(this.testPerson.checkHIV.calls.allArgs()).toEqual(
-                        ["Name1", "10/25/1990", "A+"]
-                        ["Name2", "10/25/1990", "A+"]
+                    expect(this.testPerson.checkHIV.calls.allArgs()).toEqual([
+                        ["Name1", "10/25/1990", "A+"],
+                        ["Name2", "10/25/1990", "A+"],
                         ["Name3", "10/25/1990", "A+"]
-                        );
+                    ]);
                 });
             });
+            // scenario-6
+            describe(".calls.mostRecent() property ", function() {                
+                it("should return the context ('this') and arguments for the most recent call", function() {
+                    this.testPerson.ValidateHIV("Name1", "10/25/1990", "A+");   // first call
+                    this.testPerson.ValidateHIV("Name2", "10/25/1990", "A+");   // second call
+
+                    // failed test case, need to debug
+                    // expect(this.testPerson.checkHIV.calls.mostRecent()).toEqual(
+                    //     {object: this.testPerson, args: ["Name2", "10/25/1990", "A+"]});
+                    expect(this.testPerson.checkHIV.calls.mostRecent().args).toEqual(["Name2", "10/25/1990", "A+"]);
+                    expect(this.testPerson.checkHIV.calls.mostRecent().object).toBe(this.testPerson);
+                });
+            });
+            // scenario-7
+            describe(".calls.first() property ", function() {                
+                it("should return the context ('this') and arguments for the first call", function() {
+                    this.testPerson.ValidateAge("10/25/1990");   // first call
+                    this.testPerson.ValidateAge("11/30/1988");   // second call
+
+                    //  failed test case, need to debug
+                    // expect(this.testPerson.getAge.calls.first()).toEqual(
+                    //     {object: this.testPerson, args: ["10/25/1990"]});
+                    expect(this.testPerson.getAge.calls.first()).toEqual(["10/25/1990"]);
+                    expect(this.testPerson.getAge.calls.first().object).toEqual(this.testPerson);
+                });
+            });
+            // Note: .mostRecent().object/ .first().object) cannot both work with .toBe()
+            // This is could be a bug issue
         });
     });
 
