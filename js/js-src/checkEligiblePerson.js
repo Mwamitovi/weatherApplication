@@ -37,3 +37,10 @@ Person.prototype.checkHIV = function(pName, pDOB, pBloodGroup){
     return bolHIVResult;
 };
 
+
+// Define custome error for validation
+function ValidationError(message){
+    this.message = message;
+}
+
+ValidationError.prototype = Object.create(Error.prototype);
