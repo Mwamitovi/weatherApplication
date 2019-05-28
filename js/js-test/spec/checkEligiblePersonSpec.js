@@ -22,7 +22,8 @@
             // scenario-1
             it("Person's age should be greater than or equal to 18 years", function() {
                 var testPerson = new Person();
-                spyOn(testPerson, "getAge");
+                // spyOn(testPerson, "getAge");
+                spyOn(testPerson, "getAge").and.callThrough();
                 testPerson.getAge("02/10/1987");
 
                 expect(testPerson.getAge).toHaveBeenCalled();
