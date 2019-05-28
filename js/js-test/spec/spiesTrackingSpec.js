@@ -101,9 +101,19 @@
                     expect(this.testPerson.getAge.calls.first()).toEqual(["10/25/1990"]);
                     expect(this.testPerson.getAge.calls.first().object).toEqual(this.testPerson);
                 });
+                // Note: .mostRecent().object/ .first().object) cannot both work with .toBe()
+                // This is could be a bug issue
             });
-            // Note: .mostRecent().object/ .first().object) cannot both work with .toBe()
-            // This is could be a bug issue
+            // scenario-8
+            describe(".calls.reset() property ", function() {                
+                it("should clear all tracking for a spy", function() {
+                    this.testPerson.ValidateAge("10/25/1990");
+                    expect(this.testPerson.getAge.calls.any()).toEqual(true);
+
+                    this.testPerson.getAge.calls.reset();
+                    expect(this.testPerson.getAge.calls.any()).toBe(false);
+                });
+            });
         });
     });
 
