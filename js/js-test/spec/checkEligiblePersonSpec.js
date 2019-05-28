@@ -39,6 +39,15 @@
 
                 expect(testPerson.checkHIV).toHaveBeenCalled();
             });
+            // scenario-3
+            it("In Uganda, the person's age should be greater than or equal to 20 years", function() {
+                var testPerson = new Person();
+                spyOn(testPerson, "getAge").and.returnValue(20);
+                testPerson.ValidateAge("02/10/1987");
+
+                expect(testPerson.getAge).toHaveBeenCalled();
+                expect(testPerson.getAge()).toEqual(20);
+            });
         });
     });
 
