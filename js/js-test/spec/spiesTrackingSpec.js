@@ -24,12 +24,19 @@
 
     describe("Jasmine spies: ", function() {
         describe("Tracking properties, ", function() {
+            beforeEach(function(){
+                this.testPerson = new Person();
+                spyOn(this.testPerson, "getAge");
+            });
             describe(".calls.any() property ", function() {
                 // scenario-1
                 it("should return 'false' if spy is not called at all", function() {
+                    expect(this.testPerson.getAge.calls.any()).toEqual(false);
                 });
                 // scenario-2
                 it("should return 'true' if spy is called once", function() {
+                    this.testPerson.ValidateAge("02/10/1987");
+                    expect(this.testPerson.getAge.calls.any()).toEqual(true);
                 });
             });
         });
