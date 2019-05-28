@@ -50,6 +50,18 @@
                     expect(this.testPerson.getAge.calls.count()).toEqual(2);
                 });
             });
+            // scenario-4
+            describe(".calls.argsFor(index) property ", function() {                
+                it("should return the argument(s) corresponding to each call", function() {
+                    this.testPerson.ValidateHIV("Name1", "10/25/1990", "A+");   // first call
+                    this.testPerson.ValidateHIV("Name2", "10/25/1990", "A+");   // second call
+                    this.testPerson.ValidateHIV("Name3", "10/25/1990", "A+");   // third call
+
+                    expect(this.testPerson.checkHIV.calls.argsFor(0)).toEqual(["Name1", "10/25/1990", "A+"]);
+                    expect(this.testPerson.checkHIV.calls.argsFor(1)).toEqual(["Name2", "10/25/1990", "A+"]);
+                    expect(this.testPerson.checkHIV.calls.argsFor(2)).toEqual(["Name3", "10/25/1990", "A+"]);
+                });
+            });
         });
     });
 
