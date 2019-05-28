@@ -27,3 +27,13 @@ Person.prototype.getAge = function(birth){
     return calculatedAge;
 };
 
+Person.prototype.checkHIV = function(pName, pDOB, pBloodGroup){
+    console.log("checkHIV() function has been called");
+    bolHIVResult = true;
+    // logic to verify HIV+ shall be implemented later
+    if(bolHIVResult == true){
+        throw new ValidationError("Unfortuantely, you are infected with HIV");
+    };
+    return bolHIVResult;
+};
+
