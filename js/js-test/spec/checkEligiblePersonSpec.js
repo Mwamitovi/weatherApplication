@@ -27,7 +27,15 @@
 
                 expect(testPerson.getAge).toHaveBeenCalled();
                 expect(testPerson.getAge).toHaveBeenCalledWith("02/10/1987");
-            });           
+            });
+            // scenario-2
+            it("A person should not be infected with HIV", function() {
+                var testPerson = new Person();
+                spyOn(testPerson, "checkHIV");
+                testPerson.ValidateHIV();
+
+                expect(testPerson.checkHIV).toHaveBeenCalled();
+            });
         });
     });
 
