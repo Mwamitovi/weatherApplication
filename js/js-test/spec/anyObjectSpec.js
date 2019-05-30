@@ -20,6 +20,15 @@
     describe("jasmine.any(), ", function() {
         // scenario-1
         it("should be applied successfully for comparing arguments", function(){
+            var mydate = new Date("11/20/2014");    // mm/dd/yyyy
+            var myMobile = new MobilePhone(
+                "Huawei", "silver", "8 Megapixels", mydate.toDateString(), 
+                ["Android", "Lollipop", "1.2 GHz Quad Core"]
+            );
+
+            expect(myMobile).toEqual(jasmine.any(Object));
+            expect(myMobile.mobileRating()).toEqual(jasmine.any(String), jasmine.any(Array));
+            expect(12).toEqual(jasmine.any(Number));
         });
     });
 
