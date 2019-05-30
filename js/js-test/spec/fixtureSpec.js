@@ -20,7 +20,12 @@
                     jasmine.getFixtures().fixturesPath = 'spec/javascripts/fixtures';
                 })
                 describe("'loadFixtures' Method, ", function() {
+                    beforeEach(function(){
+                        loadFixtures('myfixture.html');
+                    });
                     it("Load fixture from a file", function(){
+                        expect($('.myULClas')).toExist();
+                        expect($('#my-fixture')).toExist();
                     }); 
                 }); 
             }); 
