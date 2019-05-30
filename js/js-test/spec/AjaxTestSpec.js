@@ -18,6 +18,9 @@
             var request, myText, myCallback;
             beforeEach(function(){
                 jasmine.Ajax.install();
+                var myCallback = jasmine.createSpy("success");
+                ajaxRequest(myCallback);
+                var request = jasmine.Ajax.request.mostRecent();
             });
             
             afterEach(function(){
@@ -25,10 +28,14 @@
             });
             // scenario-1
             it("Method 'GET' should be passed through XMLHttpRequest request", function(){
+                expect(request.method).toBe('GET');
+                expect(myCallback).not.toHaveBeenCalled();
             });
             // scenario-2         
             it("url should be passed as '/some/url/?q=Cookbook' through XMLHttpRequest request", function(){
-            });       
+                expect(request.url).toBe('/some/url/?q=Cookbook');
+                expect(myCallback).not.toHaveBeenCalled();
+            });    
         });
     });
 
