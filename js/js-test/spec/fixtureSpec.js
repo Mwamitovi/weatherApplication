@@ -27,7 +27,17 @@
                         expect($('.myULClas')).toExist();
                         expect($('#my-fixture')).toExist();
                     }); 
-                }); 
+                });
+                describe("'readFixtures' Method, ", function(){
+                    var theFixture;
+                    beforeEach(function(){
+                        theFixture = readFixtures('myfixture.html');
+                    });
+                    it("reads fixtures from a file", function(){
+                        expect(theFixture).toContainText(/Martin/);
+                        expect($(theFixture)).find("li").toHaveText(/Matovu/);
+                    })
+                });
             }); 
         });
     });
