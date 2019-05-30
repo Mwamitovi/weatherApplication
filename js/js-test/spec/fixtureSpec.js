@@ -47,7 +47,21 @@
                         expect($('.FixtureClass')).toExist();
                     })
                 });
-            }); 
+            });
+            describe("JSON fixture: ", function(){
+                var fixtureFile, ufixtures, myResult;
+                beforeEach(function(){
+                    loadFixtures('myfixture.html');
+                    jasmine.getJSONFixtures().fixturesPath = 'spec/javascripts/fixtures';
+                    fixtureFile = "myData.json";
+                    ufixtures = loadJSONFixtures(fixtureFile);
+                    myResult = ufixtures[fixtureFile];
+                });
+                it("loads json data from a file", function(){
+                    $('#my-fixture').html("Uganda Zaabu");
+                    expect($('#my-fixture')).toContainText("Uganda Zaabu");
+                });
+            });
         });
     });
 
