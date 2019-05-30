@@ -14,6 +14,7 @@
      */
     
     describe("JavaScript Application: ", function() {
+        // scenario-1
         describe("When Jasmine Specs are designed with ", function() {
             describe("HTML fixture: ", function() {
                 beforeEach(function(){
@@ -36,6 +37,14 @@
                     it("reads fixtures from a file", function(){
                         expect(theFixture).toContainText(/Martin/);
                         expect($(theFixture)).find("li").toHaveText(/Matovu/);
+                    })
+                });
+                describe("'setFixtures' Method, ", function(){
+                    beforeEach(function(){
+                        setFixtures('<div class="FixtureClass">Uganda Zaabu</div>');
+                    });
+                    it("receive fixture as a parameter", function(){
+                        expect($('.FixtureClass')).toExist();
                     })
                 });
             }); 
