@@ -36,6 +36,14 @@
                     expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("O+");
                 });
                 it("can give blood to a person with A+ blood group", function(){
+                    var testPersonCriteria = new Person("Kangave Yiga", "05/25/1980", "O+", "Donor");
+                    spyOn(testPersonCriteria, "MatchBloodGroupToGiveOrReceive").and.callThrough();
+
+                    var callback = jasmine.createSpy();
+                    testPersonCriteria.ValidateBloodGroup(callback);
+                    expect(callback).toHaveBeenCalled();
+                    expect(testPersonCriteria.MatchBloodGroupToGiveOrReceive).toHaveBeenCalled();
+                    expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("A+");
                 });
             });
         });
