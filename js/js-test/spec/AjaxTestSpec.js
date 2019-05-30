@@ -18,9 +18,9 @@
             var request, myText, myCallback;
             beforeEach(function(){
                 jasmine.Ajax.install();
-                var myCallback = jasmine.createSpy("success");
+                myCallback = jasmine.createSpy("success");
                 ajaxRequest(myCallback);
-                var request = jasmine.Ajax.request.mostRecent();
+                request = jasmine.Ajax.request.mostRecent();
             });
             
             afterEach(function(){
@@ -35,7 +35,13 @@
             it("url should be passed as '/some/url/?q=Cookbook' through XMLHttpRequest request", function(){
                 expect(request.url).toBe('/some/url/?q=Cookbook');
                 expect(myCallback).not.toHaveBeenCalled();
-            });    
+            });
+            // scenario-3
+            it("myCallback should be called on successful response", function(){
+                myText = "Jasmine Cookbook";
+                request.respondWith({ "success": myCallback(myText) });
+                expect(myCallback).toHaveBeenCalledWith("Jasmine Cookbook");
+            });  
         });
     });
 
