@@ -17,6 +17,7 @@
     describe("<MwamiTovi> Company: Health Care Solution, ", function() {
         describe("When to donate or receive blood, ", function() {
             describe("Person with O+ Blood Group: ", function(){
+                // scenario-1
                 it("can receive blood from a person with O+ blood group", function(){
                     var testPersonCriteria = new Person("Wasswa Ddumba", "10/30/1975", "O+", "Receiver");
                     spyOn(testPersonCriteria, "MatchBloodGroupToGiveOrReceive").and.callThrough();
@@ -35,6 +36,7 @@
                     expect(testPersonCriteria.MatchBloodGroupToGiveOrReceive.calls.count()).toEqual(1);
                     expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("O+");
                 });
+                // scenario-2
                 it("can give blood to a person with A+ blood group", function(){
                     var testPersonCriteria = new Person("Kangave Yiga", "05/25/1980", "O+", "Donor");
                     spyOn(testPersonCriteria, "MatchBloodGroupToGiveOrReceive").and.callThrough();
@@ -44,6 +46,30 @@
                     expect(callback).toHaveBeenCalled();
                     expect(testPersonCriteria.MatchBloodGroupToGiveOrReceive).toHaveBeenCalled();
                     expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("A+");
+                });
+            });
+            describe("Person with B- Blood Group: ", function(){
+                // scenario-3
+                it("can receive blood from a person with B- blood group", function(){
+                    var testPersonCriteria = new Person("Mukulu Mugerwa", "01/12/1986", "B-", "Receiver");
+                    spyOn(testPersonCriteria, "MatchBloodGroupToGiveOrReceive").and.callThrough();
+
+                    var callback = jasmine.createSpy();
+                    testPersonCriteria.ValidateBloodGroup(callback);
+                    expect(callback).toHaveBeenCalled();
+                    expect(testPersonCriteria.MatchBloodGroupToGiveOrReceive).toHaveBeenCalled();
+                    expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("B-");
+                });
+                // scenario-4
+                it("can receive blood from a person with O- blood group", function(){
+                    var testPersonCriteria = new Person("Lukwago Kamaddi", "05/31/1989", "B-", "Receiver");
+                    spyOn(testPersonCriteria, "MatchBloodGroupToGiveOrReceive").and.callThrough();
+
+                    var callback = jasmine.createSpy();
+                    testPersonCriteria.ValidateBloodGroup(callback);
+                    expect(callback).toHaveBeenCalled();
+                    expect(testPersonCriteria.MatchBloodGroupToGiveOrReceive).toHaveBeenCalled();
+                    expect(testPersonCriteria.ValidateBloodGroup(callback)).toContain("O-");
                 });
             });
         });
