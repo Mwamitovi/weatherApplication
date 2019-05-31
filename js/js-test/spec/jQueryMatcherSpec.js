@@ -80,8 +80,23 @@
                     expect($('ul.myClass > li')).toHaveLength(4);
                 });
             });
+            // scenario-8
+            describe("toBeMatchedBy() matcher should be applied successfully: ", function(){
+                it("to match elements for the given selector", function(){
+                    expect($('#my-fixture')).toBeMatchedBy('.intro');
+                });
+            });
+            // scenario-9
+            describe("toEqual() matcher should be applied successfully: ", function(){
+                it("to match elements for the given selector", function(){
+                    expect($('#my-fixture')).toEqual('div');
+                    expect($('div.intro')).toEqual('div'); 
+                    expect($('#my-fixture')).toEqual('div#my-fixture');
+                    expect($('#my-fixture')).toEqual('.intro');
+                });
+            });           
         });
-    });
+    });            
 
 })();
 
