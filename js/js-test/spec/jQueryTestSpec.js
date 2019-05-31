@@ -45,6 +45,16 @@
                     expect(myCallback).toHaveBeenCalled()
                     expect(showErrorMessage).not.toHaveBeenCalled();
                 });
+                // scenario-3
+                it("error method showErrorMessage should be called for any malfunctioning", function(){
+                    spyOn($, "ajax").and.callFake(function(e){
+                        e.error({});
+                    });
+                    showErrorMessage = jasmine.createSpy();
+                    sendRequestWithJQuery(myCallback, showErrorMessage, configData);
+
+                    expect(showErrorMessage).toHaveBeenCalled();
+                });
             });
         });
     });
