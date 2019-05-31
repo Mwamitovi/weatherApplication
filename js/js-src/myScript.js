@@ -1,6 +1,6 @@
 
 function ajaxRequest(myCallback){
-      var xmlhttp = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function(args){
         myCallback(this.responseText);
     };
