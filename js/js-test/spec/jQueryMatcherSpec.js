@@ -30,6 +30,24 @@
                 jasmine.getFixtures().fixturesPath = 'spec/javascripts/fixtures';
                 loadFixtures('jQueryFixture.html', 'formFixture.html')
             });
+            // scenario-1
+            describe("toContainText() matcher should be applied successfully for: ", function(){
+                it("finding text in an element", function(){
+                    expect($('h1')).toContainText("Welcome");
+                });
+                it("finding any text or text-pattern in an element", function(){
+                    expect($('#my-Address')).toContainText(/Kampala/);
+                });
+            });
+            // scenario-2
+            describe("toHaveText() matcher should be applied successfully for: ", function(){
+                it("finding text in an element", function(){
+                    expect($('#my-Address')).toHaveText('I live in Kampala, Uganda');
+                });
+                it("finding any text or text-pattern in an element", function(){
+                    expect($('#my-Address')).toHaveText(/Uganda/);
+                });
+            });
         });
     });
 
