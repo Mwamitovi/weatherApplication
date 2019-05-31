@@ -48,6 +48,18 @@
                     expect($('#my-Address')).toHaveText(/Uganda/);
                 });
             });
+            //Scenario-3
+            describe("toHaveClass() matcher should be applied successfully: ", function(){
+                it("to detect class of an element", function(){
+                    expect($('#my-fixture')).toHaveClass('intro');
+                });
+            });
+            //Scenario-4
+            describe("toContainHtml() matcher should be applied successfully: ", function(){
+                it("for finding html element", function(){
+                    expect($('#myFixtureOuter')).toContainHtml('<ul id="Listfriends"></ul>');
+                });
+            });
         });
     });
 
