@@ -94,7 +94,26 @@
                     expect($('#my-fixture')).toEqual('div#my-fixture');
                     expect($('#my-fixture')).toEqual('.intro');
                 });
-            });           
+            }); 
+            // scenario-10
+            describe("toBeChecked() matcher should be applied successfully: ", function(){
+                it("for checking the state of check box", function(){
+                    expect($('#myCheckBox')).toBeChecked();
+                });
+            });
+            // scenario-11
+            describe("toBeFocused() matcher should be applied successfully: ", function(){
+                it("to detect whether element is in focus or not", function(){
+                    expect($('#myFirstName').focus()).toBeFocused();
+                    expect($('input.myName').focus()).toBeFocused();
+                });
+            });
+            // scenario-12
+            describe("toBeDisabled() matcher should be applied successfully: ", function(){
+                it("to detect whether element is disabled or not", function(){
+                    expect($('#mySubmit')).toBeDisabled();
+                });
+            });                            
         });
     });            
 
