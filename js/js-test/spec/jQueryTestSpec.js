@@ -56,6 +56,26 @@
                     expect(showErrorMessage).toHaveBeenCalled();
                 });
             });
+            // scenario-4
+            describe("DOM Manipulation", function(){
+                it("Test HTML fixture", function(){
+                        jasmine.getFixtures().fixturesPath = 'spec/javascripts/fixtures';
+                        loadFixtures('myFixture.html');
+                        jasmine.getJSONFixtures().fixturesPath = 'spec/javascripts/fixtures';
+                        
+                        var FixtureUrl = "myData.json";
+                        var ufixtures = loadJSONFixtures(FixtureUrl);
+                        var myResult = ufixtures[FixtureUrl];
+
+                        spyOn($, "ajax").and.callFake(function(e){
+                            e.success(myResult);
+                        });
+                        showErrorMessage = jasmine.createSpy();
+                        sendRequestWithJQuery(myCallback, showErrorMessage, configData);
+                        
+                        expect($('#my-fixture')).toContainText(/Uganda Zaabu by Martin Matovu/i);
+                });
+            });
         });
     });
 
