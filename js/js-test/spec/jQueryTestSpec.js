@@ -17,13 +17,13 @@
      */
     
     describe("jQuery", function() {
-        // scenario-1
         describe("Ajax calls: ", function() {
             describe("with $.ajax: ", function() {
                 var configData = {
                     url: "myData.json",
                     remainingTime: 5000
                 };
+                // scenario-1
                 it("correct URL should be passed to $.ajax object", function(){
                     spyOn($, "ajax");
                     sendRequestWithJQuery(undefined, undefined, configData);
@@ -31,6 +31,19 @@
                     expect($.ajax).toHaveBeenCalledWith(jasmine.objectContaining(
                         {url: configData.url}
                     ));
+                });
+                // scenario-2
+                it("method 'myCallback' should be called on successful response", function(){
+                    spyOn($, "ajax").and.callFake(function(e){
+                        e.success({});
+                    });
+                    var myCallback;
+                    myCallback = jasmine.createSpy();
+                    showErrorMessage = jasmine.createSpy();
+                    sendRequestWithJQuery(myCallback, showErrorMessage, configData);
+
+                    expect(myCallback).toHaveBeenCalled()
+                    expect(showErrorMessage).not.toHaveBeenCalled();
                 });
             });
         });
