@@ -48,16 +48,36 @@
                     expect($('#my-Address')).toHaveText(/Uganda/);
                 });
             });
-            //Scenario-3
+            // scenario-3
             describe("toHaveClass() matcher should be applied successfully: ", function(){
                 it("to detect class of an element", function(){
                     expect($('#my-fixture')).toHaveClass('intro');
                 });
             });
-            //Scenario-4
+            // scenario-4
             describe("toContainHtml() matcher should be applied successfully: ", function(){
                 it("for finding html element", function(){
                     expect($('#myFixtureOuter')).toContainHtml('<ul id="Listfriends"></ul>');
+                });
+            });
+            // scenario-5
+            describe("toHaveCss() matcher should be applied successfully: ", function(){
+                it("to find out CSS properties", function(){
+                    expect($('#myStyleID').html()).toHaveCss({margin: "10px"});
+                    expect($('#myStyleID').html()).toHaveCss({display: "none"});
+                    expect($('#myStyleID').html()).toHaveCss({display: "none", margin: "10px"});
+                });
+            });
+            // scenario-6
+            describe("toHaveId() matcher should be applied successfully: ", function(){
+                it("for detecting value of Id in element", function(){
+                    expect($('.intro')).toHaveId('my-fixture');
+                });
+            });
+            // scenario-7
+            describe("toHaveLength() matcher should be applied successfully: ", function(){
+                it("for finding length of ordered/unordered HTML list", function(){
+                    expect($('ul.myClass > li')).toHaveLength(4);
                 });
             });
         });
