@@ -20,7 +20,17 @@
         // scenario-1
         describe("Ajax calls: ", function() {
             describe("with $.ajax: ", function() {
+                var configData = {
+                    url: "myData.json",
+                    remainingTime: 5000
+                };
                 it("correct URL should be passed to $.ajax object", function(){
+                    spyOn($, "ajax");
+                    sendRequestWithJQuery(undefined, undefined, configData);
+                    
+                    expect($.ajax).toHaveBeenCalledWith(jasmine.objectContaining(
+                        {url: configData.url}
+                    ));
                 });
             });
         });
